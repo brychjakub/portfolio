@@ -1,0 +1,84 @@
+<html>
+
+<head>
+
+    <title> Random number </title>
+
+    <link rel='stylesheet' type='text/css' media='screen' href='https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css'>
+
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+
+</head>
+
+<body>
+
+<h1>Výběr náhodného čísla</h1>
+
+<br>
+
+<p>Základ</p>
+
+<textarea name="number" id="number" placeholder="Zvolte nejvyšší číslo...."></textarea>
+<br>
+<button id="run" type="button" class="button is-primary" pys-onClick="randomNumber">Count</button>
+<p>vítězem je číslo:</p>
+<br>
+<p id = 'output'></p>
+
+<br>
+
+<p>další číslo? </p>
+
+<br>
+
+<button id="next" type="button" class="button is-danger" pys-onClick="nextNum">Next</button>
+
+
+</body>
+<py-env>
+  - numpy
+</py-env>
+
+<py-script>
+import numpy as np
+chosen = Element("chosen")
+
+options = []
+i = 0
+number = Element("number")
+
+op = Element("output")
+
+def randomNumber(*args, **kwargs):
+    options.append(int(number.value))
+
+    num = int(number.value)
+    rnd = np.random.randint(1, num+1)
+    op.write(rnd)
+    options.append(rnd)
+    for x in range(1, num + 1):
+        if not x in options:
+            options.append(x)
+    options.remove(rnd)
+    np.random.shuffle(options)
+
+
+def nextNum(*args, **kwargs):
+        while True:
+            if not options:
+                op.write("čísla došla")
+                break
+            else:
+                newNum = np.random.choice(options)
+                op.write(newNum)
+                options.remove(newNum)
+                break
+
+
+
+</py-script>
+
+
+</html>

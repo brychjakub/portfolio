@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>240 Survey Answers</title>
+    <link rel="stylesheet" href="./static/psychoStyle.css" />
+      <link href="./static/assets/dog.ico" rel="icon">
+
+  </head>
+  <body>
+    <div style="text-align: center">
+      <h1>Dotazník</h1>
+
+      <h3>Zvolte odpovědi a dole vyplňte dotazník. Pokud jste hotovi, dole je tlačítko dokončit. Ať se daří!</h3>
+      <table style="margin: 0 auto">
+        <thead>
+          <tr>
+            <th>Emoji</th>
+            <th>Význam</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>👎</td>
+            <td>Vůbec nevystihuje</td>
+          </tr>
+          <tr>
+            <td>👎🏻</td>
+            <td>Spíše nevystihuje</td>
+          </tr>
+          <tr>
+            <td>🤷</td>
+            <td>Neutrální</td>
+          </tr>
+          <tr>
+            <td>👍🏻</td>
+            <td>Spíše vystihuje</td>
+          </tr>
+          <tr>
+            <td>👍</td>
+            <td>Úplně vystihuje</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="survey-container" style="text-align: center"></div>
+   <!-- <script src="./static/psycho.js"></script> -->
+  </body>
+</html>
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <form>
+      <label for="q1">Jméno a příjmení:</label>
+      <input type="text" id="q1" name="q1" />
+
+      <label for="q2">Věk:</label>
+      <input type="text" id="q2" name="q2" />
+
+      <label for="q3">Datum:</label>
+      <input type="text" id="q3" name="q3" />
+
+      <label for="q4">Pohlaví:</label>
+      <input type="text" id="q4" name="q4" />
+
+      <label for="q5">Posouzení:</label>
+      <select id="q5" name="q5">
+        <option value="sebeposuzování">Sebeposuzování</option>
+        <option value="posouzení jiného">Posouzení jiného</option>
+      </select>
+      <label for="q6">Snažil(a) jsem se odpovídat upřímně:</label>
+      <select id="q6" name="q6">
+        <option value="VN">Velmi nesouhlasím</option>
+        <option value="SN">Spíše nesouhlasím</option>
+        <option value="N">Nesouhlasím</option>
+        <option value="SV">Spíše souhlasím</option>
+        <option value="UV">Velmi souhlasím</option>
+      </select>
+      <label for="q7">Odpověděl(a) jsem na všechny výroky:</label>
+      <select id="q7" name="q7">
+        <option value="ano">Ano</option>
+        <option value="ne">Ne</option>
+      </select>
+      <label for="q8">Zaznamenal(a) jste své odpovědi na správné místo?:</label>
+      <select id="q8" name="q8">
+        <option value="ano">Ano</option>
+        <option value="ne">Ne</option>
+      </select>
+    </form>
+
+    <div style="text-align: center">
+      <button onclick="completeAndNext()">Dokončit</button>
+    </div>
+    <script src="./static/psycho.js"></script>
+    <script>
+      function completeAndNext() {
+        getHiddenValues();
+        generateTextFile();
+      }
+    </script>
+  </body>
+</html>
